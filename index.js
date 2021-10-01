@@ -28,7 +28,7 @@ const octokit = new Octokit({
 async function main() {
   const timeline = await twitter.get("statuses/user_timeline", {
     screen_name: twitterHandle,
-    count: 1,
+    count: 7,
     trim_user: 1,
     exclude_replies: true
   });
