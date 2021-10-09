@@ -36,10 +36,10 @@ async function main() {
     const tweet = timeline[0];
     await updateGist(tweet);
     let tweetText = '';
-    for (i = 0; i <= timeline.count(); i++) {
-      tweetText += timeline[i].text;
-    }
-    console.log(tweetText);
+    // for (i = 0; i <= timeline.count(); i++) {
+    //   tweetText += timeline[i].text;
+    // }
+    // console.log(tweetText);
 }
 
 async function updateGist(tweet) {
