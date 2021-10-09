@@ -34,15 +34,15 @@ async function main() {
   });
 
     const tweet = timeline[0];
-//  await updateGist(tweet);
+    await updateGist(tweet);
     let tweetText = '';
     for (i = 0; i <= timeline.count(); i++) {
       tweetText += timeline[i].text;
     }
-    await updateGist(tweet, tweetText);
+    console.log(tweetText);
 }
 
-async function updateGist(tweet, tweetText) {
+async function updateGist(tweet) {
   let gist;
   try {
     gist = await octokit.gists.get({ gist_id: gistId });
@@ -62,7 +62,7 @@ async function updateGist(tweet, tweetText) {
           filename: `@${twitterHandle} - ${timeAgo} ago | ❤ ${
             tweet.favorite_count
           } | 🔁 ${tweet.retweet_count}`,
-          content: wrapAnsi(tweetText, 256, { hard: true })
+          content: wrapAnsi(tweet.text, 256, { hard: true })
         }
       }
     });
